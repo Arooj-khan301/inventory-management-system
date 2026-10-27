@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card p-4 border-0 shadow-sm">
+      <h4 class="fw-bold text-primary mb-2">Adjust Stock Level</h4>
+      <p class="small text-muted mb-3">{{ product.name }} (<code>{{ product.sku }}</code>) — Current Qty: <strong>{{ product.quantity }}</strong></p>
+      <form method="POST">
+        <div class="mb-3">
+          <label class="form-label">Transaction Type</label>
+          <select name="action" class="form-select">
+            <option value="IN">Stock IN (Receive Inventory)</option>
+            <option value="OUT">Stock OUT (Issue / Sale)</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Quantity</label>
+          <input type="number" name="quantity" class="form-control" min="1" value="1" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Notes</label>
+          <input type="text" name="notes" class="form-control" placeholder="Optional reference note">
+        </div>
+        <button class="btn btn-primary w-100 fw-bold">Record Adjustment</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

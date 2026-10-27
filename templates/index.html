@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<h3 class="fw-bold mb-3 text-primary">Warehouse Overview</h3>
+<div class="row g-3 mb-4">
+  <div class="col-md-3"><div class="card p-3 bg-primary text-white"><h6>Total Items</h6><h3>{{ total_products }}</h3></div></div>
+  <div class="col-md-3"><div class="card p-3 bg-success text-white"><h6>Total Units</h6><h3>{{ total_stock }}</h3></div></div>
+  <div class="col-md-3"><div class="card p-3 bg-info text-white"><h6>Valuation</h6><h3>PKR {{ "{:,.0f}".format(total_value) }}</h3></div></div>
+  <div class="col-md-3"><div class="card p-3 bg-warning text-dark"><h6>Low Stock</h6><h3>{{ low_stock }}</h3></div></div>
+</div>
+{% endblock %}
